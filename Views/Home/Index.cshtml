@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Google Calendar Events</title>
+</head>
+
+<body>
+    <h1>Upcoming Google Calendar Events</h1>
+
+    @if (Model.Count > 0)
+    {
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Event</th>
+                    <th>Start</th>
+                    <th>End</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var eventItem in Model)
+                {
+                    <tr>
+                        <td>@eventItem.Summary</td>
+                        <td>@eventItem.Start.DateTime</td>
+                        <td>@eventItem.End.DateTime</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>No upcoming events found.</p>
+    }
+</body>
+
+</html>
